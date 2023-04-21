@@ -33,7 +33,8 @@ class LocalNotificationHelper {
     });
   }
 
-  Future<void> sendSimpleNotification() async {
+  Future<void> sendSimpleNotification(
+      {required String title, required String body}) async {
     AndroidNotificationDetails androidNotificationDetails =
         const AndroidNotificationDetails(
       "101",
@@ -51,8 +52,8 @@ class LocalNotificationHelper {
 
     await flutterLocalNotificationsPlugin.show(
       101,
-      "Simple Notification",
-      "This is demo notification.",
+      title,
+      body,
       notificationDetails,
       payload: "Simple Notification Clicked",
     );
